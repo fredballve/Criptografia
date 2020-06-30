@@ -10,7 +10,7 @@ while True:                                                           #Loop Infi
   if menu==1:                                                         #Caso o usuário escolha Criptografar:
     key = Fernet.generate_key()                                       #Função para gerar uma chave
     print(f"Sua chave é: {key.decode('ascii')} guarde com segurança!")#Imprime a key formatada em ascii pois é do tipo byte
-    key = Fernet(key)                                                 #Criar uma key na classe "Fernet" da biblioteca
+    key = Fernet(key)                                                 
     cript = key.encrypt(conteudo)                                     #Criptografa o conteudo com base na chave
     arq=open(arqinput,"wb")                                           #Abre o arquivo para escrita "w" de forma binária "b"
     arq.write(cript)                                                  #Escreve no arquivo o conteudo criptografado
@@ -22,7 +22,7 @@ while True:                                                           #Loop Infi
     if len(key)!=44:
       menu=0                                                          #Programa entenderá como erro
     else:
-      key = Fernet(key)                                               #Criar uma key na classe "Fernet" da biblioteca
+      key = Fernet(key)                                              
       decript = key.decrypt(conteudo)                                 #Descriptografa o conteudo com base na chave
       arq=open(arqinput,"wb")                                         #Abre o arquivo para escrita "w" de forma binária "b"
       arq.write(decript)                                              #Escreve no arquivo o conteudo descriptografado
